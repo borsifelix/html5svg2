@@ -1,0 +1,28 @@
+<svg width="1000" height="360" font-family="Montserrat" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style type="text/css">
+      @import url('http://fonts.googleapis.com/css?family=Montserrat|Baumans|Belleza|Josefin Sans:300,600');
+    </style>
+    <marker id="pto" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <circle cx="5" cy="5" r="4" style="fill:red;stroke:none;" />
+    </marker>
+    <marker id="xy" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <circle cx="5" cy="5" r="4" style="fill:navy;stroke:none;" />
+    </marker>
+    <marker id="flecha" markerWidth="14" markerHeight="14" refX="5" refY="7" orient="auto-start-reverse">
+      <polygon style="fill:blue;stroke:none;" points="2,4 12,7 2,10" />
+    </marker>
+  </defs>
+  <rect x="50" y="10" width="400" height="300" style="fill:yellowgreen;opacity:0.15;" />
+  <polyline style="stroke:blue;stroke-width:1.5;fill:none;" marker-start="url(#flecha)" marker-mid="url(#pto)" marker-end="url(#flecha)" points="50,310 50,10 450,10" />
+  <polyline style="stroke:red;stroke-width:0.5;stroke-dasharray:6 2;fill:none;" marker-mid="url(#xy)" points="250,10 250,160 50,160" />
+  <text x="250" y="320" style="fill:blue;font-size:14pt;text-anchor:middle;dominant-baseline:hanging;">Sistema de coordenadas SVG</text>
+  <text x="55" y="15" style="dominant-baseline:hanging;">(0, 0)</text>
+  <text x="255" y="165" style="dominant-baseline:hanging;">(x, y)</text>
+  <rect x="550" y="10" width="400" height="300" style="fill:yellowgreen;opacity:0.15;" />
+  <polyline style="stroke:blue;stroke-width:1.5;fill:none;" marker-start="url(#flecha)" marker-mid="url(#pto)" marker-end="url(#flecha)" points="550,10 550,310 950,310" />
+  <polyline style="stroke:red;stroke-width:0.5;stroke-dasharray:6 2;fill:none;" marker-mid="url(#xy)" points="750,310 750,160 550,160" />
+  <text x="750" y="320" style="fill:blue;font-size:14pt;text-anchor:middle;dominant-baseline:hanging;">Sistema de coordenadas cartesianas</text>
+  <text x="555" y="305">(0, 0)</text>
+  <text x="755" y="155">(x, y)</text>
+</svg>

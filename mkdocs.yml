@@ -1,0 +1,9 @@
+site_name: html5svg2
+
+nav:
+  - index.md
+  - '1. Codificación': 1_intro.md
+  - '2. HTML': 2_html.md
+  - '3. SVG': 3_svg.md
+
+theme: readthedocs
