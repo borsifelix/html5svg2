@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>html5svg2</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Gu\u00eda de uso de HTML5SVG2";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> html5svg2
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Guía de uso de HTML5SVG2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#acerca-de-html5svg2">Acerca de html5svg2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#instalacion">Instalación</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ejemplo-de-uso">Ejemplo de uso</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="1_intro/">1. Codificación</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="2_html/">2. HTML</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="3_svg/">3. SVG</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">html5svg2</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Guía de uso de HTML5SVG2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="guia-de-uso-de-html5svg2">Guía de uso de HTML5SVG2</h1>
+<h2 id="acerca-de-html5svg2">Acerca de <em>html5svg2</em></h2>
+<p>Es una utilidad para generar reportes en formato HTML 
+(<em>HyperText Markup Language</em>) y SVG (<em>Scalable Vector Graphics</em>) 
+en aplicaciones de Python.</p>
+<p>Para su uso, se requiere por parte del usuario un conocimiento básico del lenguaje 
+de marcado HTML y SVG.</p>
+<p>Si requiere aprender sobre HTML, SVG y temas afines, un buen tutorial lo encuentra en 
+<a href="https://www.w3schools.com" target="_blank"> www.w3schools.com </a></p>
+<h2 id="instalacion">Instalación</h2>
+<pre><code class="language-commandline">pip install html5svg2
+</code></pre>
+<h2 id="ejemplo-de-uso">Ejemplo de uso</h2>
+<pre><code class="language-python">from html5svg2 import dTag, dEtq, HTML5, SVG2, circulo
+
+# Crear el objeto de la clase HTML5
+h = HTML5()
+
+# Codificar el bloque &lt;head&gt;
+h.cabecera(dTag('title','Ejemplo con HTML5SVG2'))
+h.cabecera(dEtq('meta', charset='UTF-8'))
+
+# Codificar el bloque &lt;body&gt;
+h.contenido(dTag('h1', 'Título', style='color:red'))
+h.contenido(dTag('h2', 'Subtítulo', style='color:blue'))
+h.contenido(dTag('p', 'Ejemplo generado con html5svg2', style='color:navy'))
+
+# Incluir gráfico SVG
+s = SVG2(W=200, H=120)
+s.dibujar(circulo((100, 60), 50, style=&quot;stroke:magenta;fill:gold&quot;))
+h.contenido(s.exp())
+
+# Archivar  
+h.gravar(&quot;reporte.html&quot;)
+
+</code></pre>
+<p>Vista resultante:<br />
+<img alt="png" src="imgs/reporte.html.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="1_intro/" class="btn btn-neutral float-right" title="1. Codificación">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="1_intro/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.4.2
+Build Date UTC : 2023-04-04 15:27:46.604390+00:00
+-->

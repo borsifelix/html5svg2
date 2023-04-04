@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>3. SVG - html5svg2</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "3. SVG";
+        var mkdocs_page_input_path = "3_svg.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> html5svg2
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Guía de uso de HTML5SVG2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../1_intro/">1. Codificación</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2_html/">2. HTML</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">3. SVG</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#sistema-de-coordenadas">Sistema de coordenadas</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#figuras-geometricas">Figuras geométricas</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#linea">Línea</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#polilinea">Polilinea</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#poligono">Polígono</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rectangulo">Rectángulo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#circulo">Círculo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#elipse">Elipse</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trayectoria">Trayectoria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#texto">Texto</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">html5svg2</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>3. SVG</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="svg">SVG</h1>
+<h2 id="sistema-de-coordenadas">Sistema de coordenadas</h2>
+<p>En esta aplicación se la entrada de datos para dibujar
+figuras geométricas se emplea el sistema de coordenadas cartesianas.<br />
+Para la definición de marcadores úsese el sistema de coordenadas SVG.</p>
+<p><img alt="svg" src="../imgs/sistema_coordenadas.svg" /></p>
+<h2 id="figuras-geometricas">Figuras geométricas</h2>
+<h3 id="linea">Línea</h3>
+<pre><code class="language-python">linea(p1, p2, **js)
+# p1 = (x1, y1)
+# p2 = (x2, y2)
+# **js: argumentos clave:valor
+</code></pre>
+<p>Ejemplo:</p>
+<pre><code class="language-python">from html5svg2 import SVG2, linea
+
+svg = SVG2('ajustable', W=330, H=130, letra=&quot;Consolas&quot;, color_fondo=&quot;rgb(240,250,240)&quot;)
+svg.cuadricula(10, style=&quot;stroke:green;stroke-width:0.1px;&quot;)
+
+l_db = [
+    linea((10, 90), (150, 120), style=&quot;stroke:red;stroke-width:0.5px;&quot;),
+    linea((10, 70), (150, 100), style=&quot;stroke:red;stroke-width:5px;&quot;),
+    linea((10, 50), (150, 80), style=&quot;stroke:red;stroke-width:10px;&quot;),
+    linea((10, 30), (150, 60), style=&quot;stroke:blue;&quot;),
+    linea((10, 10), (150, 40), style=&quot;stroke:black;&quot;),
+    linea((180, 100), (320, 100), style=&quot;stroke:black;stroke-dasharray:10 2&quot;),
+    linea((180, 80), (320, 80), style=&quot;stroke:black;stroke-dasharray:10 5&quot;),
+    linea((180, 60), (320, 60), style=&quot;stroke:black;stroke-dasharray:5&quot;),
+    linea((180, 40), (320, 40), style=&quot;stroke:black;stroke-dasharray:10&quot;),
+    linea((180, 20), (320, 20), style=&quot;stroke:black;&quot;),
+]
+
+for db in l_db:
+    svg.dibujar(db)
+
+svg.gravar(&quot;linea.svg&quot;)
+</code></pre>
+<p><img alt="svg" src="../imgs/linea.svg" /></p>
+<h3 id="polilinea">Polilinea</h3>
+<pre><code class="language-python">polilinea(pts, **jx)
+# pts: lista de puntos [(x,y), ..]
+# **js: argumentos clave:valor
+</code></pre>
+<p>Ejemplo:</p>
+<pre><code class="language-python">from html5svg2 import SVG2, polilinea
+
+svg = SVG2('ajustable', W=330, H=130, letra=&quot;Consolas&quot;, color_fondo=&quot;rgb(250,250,230)&quot;)
+svg.cuadricula(10, style=&quot;stroke:SlateBlue;stroke-width:0.1px;&quot;)
+pts_1 = [(130, 30), (80, 30), (80, 10), (10, 65), (80, 120), (80, 100), (130, 100)]
+pts_2 = [(200, 30), (250, 30), (250, 10), (320, 65), (250, 120), (250, 100), (200, 100)]
+svg.dibujar(polilinea(pts_1, style=&quot;fill:none;stroke:blue;&quot;))
+svg.dibujar(polilinea(pts_2, style=&quot;fill:gold;stroke:blue;&quot;))
+svg.gravar(&quot;polilinea.svg&quot;)
+</code></pre>
+<p><img alt="svg" src="../imgs/polilinea.svg" /></p>
+<h3 id="poligono">Polígono</h3>
+<pre><code class="language-python">poligono(pts, **jx)
+# pts: lista de puntos [(x,y), ..]
+# **js: argumentos clave:valor
+</code></pre>
+<p>Ejemplo:</p>
+<pre><code class="language-python">from html5svg2 import SVG2, poligono
+
+svg = SVG2('ajustable', W=330, H=130, letra=&quot;Consolas&quot;, color_fondo=&quot;rgb(250,250,230)&quot;)
+svg.cuadricula(10, style=&quot;stroke:SlateBlue;stroke-width:0.1px;&quot;)
+pts_1 = [(130, 30), (80, 30), (80, 10), (10, 65), (80, 120), (80, 100), (130, 100)]
+pts_2 = [(200, 30), (250, 30), (250, 10), (320, 65), (250, 120), (250, 100), (200, 100)]
+svg.dibujar(poligono(pts_1, style=&quot;fill:none;stroke:blue;&quot;))
+svg.dibujar(poligono(pts_2, style=&quot;fill:gold;stroke:blue;&quot;))
+svg.gravar(&quot;poligono.svg&quot;)
+</code></pre>
+<p><img alt="svg" src="../imgs/poligono.svg" /></p>
+<h3 id="rectangulo">Rectángulo</h3>
+<pre><code class="language-python">rectangulo(px, w, h, **jx)
+# px = (x,y) vértice inferior izquierdo del rectángulo
+# **js: argumentos clave:valor
+#   rx: radio de curvatura en vértices
+#   ry: radio de curvatura en vértices
+#   ang: ángulo de rotación sobre el vértice px y la horizontal (en grados)
+</code></pre>
+<p>Ejemplo:</p>
+<pre><code class="language-python">from html5svg2 import SVG2, rectangulo
+
+svg = SVG2('ajustable', W=330, H=130, letra=&quot;Consolas&quot;, color_fondo=&quot;rgb(250,250,230)&quot;)
+svg.cuadricula(10, style=&quot;stroke:SlateBlue;stroke-width:0.1px;&quot;)
+
+stl = &quot;fill:PaleGreen;opacity:0.5;stroke:green;stroke-width:0.5px;&quot;
+stl2 = &quot;fill:yellow;opacity:0.5;stroke:magenta;stroke-width:1.5px;&quot;
+l_db = [
+    rectangulo((20, 20), 50, 30, style=stl),
+    rectangulo((20, 80), 50, 30, rx=5, style=stl),
+    rectangulo((100, 80), 50, 30, rx=10, ry=5, style=stl),
+    rectangulo((100, 20), 50, 30, rx=5, ry=10, style=stl),
+    rectangulo((220, 20), 80, 50, style=stl2),
+    rectangulo((220, 20), 80, 50, ang=30, style=stl2),
+    rectangulo((220, 20), 80, 50, ang=60, style=stl2),
+]
+
+for db in l_db:
+    svg.dibujar(db)
+
+svg.gravar(&quot;rectangulo.svg&quot;)
+</code></pre>
+<p><img alt="svg" src="../imgs/rectangulo.svg" /></p>
+<h3 id="circulo">Círculo</h3>
+<pre><code class="language-python">circulo(po, r, **jx)
+# po = (x,y): punto central del círculo
+# r: radio del círculo
+</code></pre>
+<p>Ejemplo:</p>
+<pre><code class="language-python">import math
+from html5svg2 import SVG2, circulo
+
+svg = SVG2('ajustable', W=330, H=130, letra=&quot;Consolas&quot;, color_fondo=&quot;rgb(250,250,230)&quot;)
+svg.cuadricula(10, style=&quot;stroke:SlateBlue;stroke-width:0.1px;&quot;)
+
+stl1 = &quot;stroke:blue;stroke-width:0.5;fill:gold;opacity:0.6;&quot;
+stl2 = &quot;stroke:blue;stroke-width:0.75;fill:cyan;opacity:0.3;&quot;
+xo = 165
+yo = 65
+rd = 50
+n = 24
+ang = 2 * math.pi / n
+sn = math.sin(ang / 2)
+r = rd * sn
+svg.dibujar(circulo((xo, yo), rd - r, style=stl1))
+for i in range(n):
+    x = xo + rd * math.cos(ang * i)
+    y = yo + rd * math.sin(ang * i)
+    svg.dibujar(circulo((x, y), r, style=stl2))
+
+svg.gravar(&quot;circulo.svg&quot;)
+</code></pre>
+<p><img alt="svg" src="../imgs/circulo.svg" /></p>
+<h3 id="elipse">Elipse</h3>
+<pre><code class="language-python">elipse(po, rx, ry, ang, **jx)
+# po = (x,y): punto central de la elipse
+# rx: radio en el eje X
+# ry: radio en el eje Y
+# ang: ángulo de rotación sobre el punto po y la horizontal (en grados)
+# **js: argumentos clave:valor
+</code></pre>
+<p>Ejemplo:</p>
+<pre><code class="language-python">import math
+from html5svg2 import SVG2, circulo, elipse
+
+svg = SVG2('ajustable', W=330, H=130, letra=&quot;Consolas&quot;, color_fondo=&quot;rgb(250,250,230)&quot;)
+svg.cuadricula(10, style=&quot;stroke:SlateBlue;stroke-width:0.1px;&quot;)
+
+stl1 = &quot;stroke:blue;stroke-width:0.5;fill:gold;opacity:0.6;&quot;
+stl2 = &quot;stroke:red;stroke-width:1.5;fill:OrangeRed;opacity:0.3;&quot;
+xo = 165
+yo = 65
+rd = 30
+n = 3
+ang = 2 * math.pi / n
+svg.dibujar(elipse((xo, yo), 25, 25, 0, style=stl1))
+for i in range(n):
+    x = xo + rd * math.cos(ang * i)
+    y = yo + rd * math.sin(ang * i)
+    angr = i * 360 / n
+    svg.dibujar(elipse((x, y), 30, 10, angr, style=stl2))
+
+svg.gravar(&quot;elipse.svg&quot;)
+</code></pre>
+<p><img alt="svg" src="../imgs/elipse.svg" /></p>
+<h3 id="trayectoria">Trayectoria</h3>
+<pre><code class="language-python">trayectoria(ldx, **jx)
+
+</code></pre>
+<p>Ejemplos:</p>
+<pre><code class="language-python">from html5svg2 import SVG2, trayectoria
+
+svg = SVG2('ajustable', W=330, H=130, letra=&quot;Consolas&quot;, color_fondo=&quot;rgb(250,250,230)&quot;)
+svg.cuadricula(10, style=&quot;stroke:SlateBlue;stroke-width:0.1px;&quot;)
+
+# Trazado de una onda
+ldx = [{'M': (10, 65)}, {'q': [(20, 50), (40, 0)]}, {'q': [(20, -50), (40, 0)]}]
+svg.dibujar(trayectoria(ldx, style=&quot;stroke:blue;stroke-width:1.5px;fill:none;&quot;))
+
+# Trazado de una aríbalo inca
+ldx = [
+    {'M': (140, 120)}, {'q': [(-4, 0), (-4, -2)]}, {'q': [(0, -2), (4, -2)]},
+    {'q': [(10, 0), (10, -30)]}, {'q': [(-20, -10), (-20, -40)]},
+    {'q': [(-5, 0), (-5, -5)]}, {'q': [(0, -5), (5, -5)]},
+    {'q': [(0, -20), (25, -20)]},
+    {'q': [(5, -5), (10, 0)]},   # base
+    {'q': [(25, 0), (25, 20)]},
+    {'q': [(5, 0), (5, 5)]}, {'q': [(0, 5), (-5, 5)]},
+    {'q': [(0, 30), (-20, 40)]}, {'q': [(0, 30), (10, 30)]},
+    {'q': [(4, 0), (4, 2)]}, {'q': [(0, 2), (-4, 2)]},
+    {'z': ''}
+]
+svg.dibujar(trayectoria(ldx, style=&quot;stroke:peru;stroke-width:0.75px;fill:orange;&quot;))
+
+# Trazado de un anillo. Lo 'hueco' se obtiene con fill-rule:evenodd;
+ldx = [
+    {'M': (240, 65)}, {'a': [(35, 35), 0, 0, 1, (70, 0)]},  {'a': [(35, 35), 0, 0, 1, (-70, 0)]},
+    {'M': (250, 65)}, {'a': [(25, 25), 0, 0, 1, (50, 0)]},  {'a': [(25, 25), 0, 0, 1, (-50, 0)]},
+]
+svg.dibujar(trayectoria(ldx, style=&quot;stroke:blue;stroke-width:1.5px;fill:cyan;fill-rule:evenodd;&quot;))
+
+svg.gravar(&quot;trayectoria.svg&quot;)
+</code></pre>
+<p><img alt="svg" src="../imgs/trayectoria.svg" /></p>
+<pre><code class="language-python">import json
+from html5svg2 import SVG2, trayectoria
+
+svg = SVG2('ajustable', W=1200, H=600, letra=&quot;Consolas&quot;, color_fondo=&quot;goldenrod&quot;)
+
+with open('jirish-nazca.json') as js:
+    ldx = json.load(js)
+
+svg.dibujar(trayectoria(ldx, style=&quot;fill:none;stroke:white;stroke-width:2px;&quot;))
+
+svg.gravar(&quot;jirish-nazca.svg&quot;)
+</code></pre>
+<p><img alt="svg" src="../imgs/jirish-nazca.svg" /></p>
+<h2 id="texto">Texto</h2>
+<pre><code class="language-python">texto(px, tx, **jx)
+# px = (x,y): punto de ubicación del texto
+# tx: texto a mostrar
+# **js: argumentos clave:valor
+#  ang: ángulo de rotación sobre el punto po y la horizontal (en grados)
+</code></pre>
+<p>Ejemplo:</p>
+<pre><code class="language-python">from html5svg2 import SVG2, texto, trayectoria
+
+svg = SVG2('ajustable', W=330, H=150, letra=&quot;Consolas&quot;, color_fondo=&quot;rgb(250,250,230)&quot;)
+svg.cuadricula(10, style=&quot;stroke:SlateBlue;stroke-width:0.1px;&quot;)
+
+ldx = [
+    {'M': (20, 120)}, {'h': 290}, {'M': (20, 140)}, {'h': 290}, {'M': (80, 5)}, {'v': 80},
+    {'M': (190, 20)}, {'h': 130}, {'M': (190, 40)}, {'h': 130}, {'M': (190, 60)}, {'h': 130},
+    {'M': (190, 80)}, {'h': 130},
+]
+stl_ = &quot;stroke:none;fill:royalblue;font-family:Arial;&quot;
+stl_1 = f&quot;{stl_}font-size:20px;&quot;
+stl_2 = f&quot;{stl_}font-size:10px;&quot;
+txt = &quot;20px: abc ABC jql Ñ/Q Ó 0 .. 9&quot;
+l_db = [
+    trayectoria(ldx, style=&quot;stroke:red;stroke-width:0.25px;&quot;),
+    texto((165, 120), txt, style=f&quot;{stl_1} text-anchor:middle;&quot;),
+    texto((80, 100), &quot;Alineamiento horizontal:&quot;, style=f&quot;{stl_2} text-anchor:middle;font-weight:bold&quot;),
+    texto((80, 70), &quot;predefinido&quot;, style=f&quot;{stl_2}&quot;),
+    texto((80, 50), &quot;text-anchor:middle&quot;, style=f&quot;{stl_2} text-anchor:middle;&quot;),
+    texto((80, 30), &quot;text-anchor:end&quot;, style=f&quot;{stl_2} text-anchor:end;&quot;),
+    texto((80, 10), &quot;text-anchor:start&quot;, style=f&quot;{stl_2} text-anchor:start;&quot;),
+    texto((250, 100), &quot;Alineamiento vertical:&quot;, style=f&quot;{stl_2} text-anchor:middle;font-weight:bold&quot;),
+    texto((190, 80), &quot;dominant-baseline:auto&quot;, style=f&quot;{stl_2} dominant-baseline:auto;&quot;),
+    texto((190, 60), &quot;dominant-baseline:middle&quot;, style=f&quot;{stl_2} dominant-baseline:middle;&quot;),
+    texto((190, 40), &quot;dominant-baseline:central&quot;, style=f&quot;{stl_2} dominant-baseline:central;&quot;),
+    texto((190, 20), &quot;dominant-baseline:hanging&quot;, style=f&quot;{stl_2} dominant-baseline:hanging;&quot;),
+    texto((165, 75), &quot;texto rotado&quot;, ang=45, style=f&quot;{stl_2} text-anchor:middle;&quot;),
+]
+
+for db in l_db:
+    svg.dibujar(db)
+
+svg.gravar(&quot;texto.svg&quot;)
+</code></pre>
+<p><img alt="svg" src="../imgs/texto.svg" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../2_html/" class="btn btn-neutral float-left" title="2. HTML"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../2_html/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

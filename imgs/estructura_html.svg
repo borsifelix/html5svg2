@@ -1,0 +1,24 @@
+<svg width="600" height="470" font-family="Consolas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style type="text/css">
+    </style>
+  </defs>
+  <polyline style="stroke:red;stroke-width:0.5;stroke-dasharray:6 2;fill:none;" points="100,420 50,420 50,50 100,50" />
+  <polyline style="stroke:red;stroke-width:0.5;stroke-dasharray:6 2;fill:none;" points="130,390 80,390 80,220 130,220" />
+  <polyline style="stroke:red;stroke-width:0.5;stroke-dasharray:6 2;fill:none;" points="130,180 80,180 80,80 130,80" />
+  <rect x="170" y="100" width="360" height="60" style="fill:rgb(228, 250, 246);" />
+  <rect x="170" y="240" width="360" height="130" style="fill:rgb(228, 250, 246);" />
+  <text x="110" y="20" style="fill:blue;font-size:14pt;dominant-baseline:middle;">&#60;!DOCTYPE html&#62;</text>
+  <text x="110" y="50" style="fill:blue;font-size:14pt;dominant-baseline:middle;">&#60;html&#62;</text>
+  <text x="140" y="80" style="fill:blue;font-size:14pt;dominant-baseline:middle;">&#60;head&#62;</text>
+  <text x="140" y="180" style="fill:blue;font-size:14pt;dominant-baseline:middle;">&#60;&#47;head&#62;</text>
+  <text x="140" y="220" style="fill:blue;font-size:14pt;dominant-baseline:middle;">&#60;body&#62;</text>
+  <text x="140" y="390" style="fill:blue;font-size:14pt;dominant-baseline:middle;">&#60;&#47;body&#62;</text>
+  <text x="110" y="420" style="fill:blue;font-size:14pt;dominant-baseline:middle;">&#60;&#47;html&#62;</text>
+  <text x="190" y="120" style="fill:navy;font-size:12pt;dominant-baseline:middle;">Bloque de codificación para</text>
+  <text x="190" y="145" style="fill:navy;font-size:12pt;dominant-baseline:middle;">metadatos, referencias, estilos, etc.</text>
+  <text x="190" y="270" style="fill:navy;font-size:12pt;dominant-baseline:middle;">Bloque de codificación para</text>
+  <text x="190" y="295" style="fill:navy;font-size:12pt;dominant-baseline:middle;">mostrar el contenido de la</text>
+  <text x="190" y="320" style="fill:navy;font-size:12pt;dominant-baseline:middle;">página web.</text>
+  <text x="300" y="455" style="fill:green;font-size:11pt;font-style:italic;text-anchor:middle;dominant-baseline:middle;">Estructura básica de un documento HTML</text>
+</svg>

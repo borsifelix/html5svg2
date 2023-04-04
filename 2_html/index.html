@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>2. HTML - html5svg2</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2. HTML";
+        var mkdocs_page_input_path = "2_html.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> html5svg2
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Guía de uso de HTML5SVG2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../1_intro/">1. Codificación</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">2. HTML</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#estructura-basica-de-un-documento-html">Estructura básica de un documento HTML</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#codificacion-de-una-pagina-html-con-htm5svg2">Codificación de una página html con htm5svg2</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../3_svg/">3. SVG</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">html5svg2</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>2. HTML</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="html">HTML</h1>
+<h2 id="estructura-basica-de-un-documento-html">Estructura básica de un documento HTML</h2>
+<p><img alt="svg" src="../imgs/estructura_html.svg" /></p>
+<h2 id="codificacion-de-una-pagina-html-con-htm5svg2">Codificación de una página html con htm5svg2</h2>
+<p>Básicamente, consta de cuatro pasos.  </p>
+<ol>
+<li>Crear un objeto a partir de la clase HTML5  </li>
+<li>Codificar el bloque &#60;head&#62; con el método cabecera()</li>
+<li>Codificar el bloque &#60;body&#62; con el método contenido()</li>
+<li>Gravar en un archivo texto.</li>
+</ol>
+<p>A continuación se muestra un ejemplo:</p>
+<pre><code class="language-python">from html5svg2 import HTML5, dTag, dEtq
+
+# 1. Crear el objeto de la clase HTML5
+h = HTML5()
+
+# 2. Codificar el bloque &lt;head&gt;
+h.cabecera(dTag('title','Ejemplo con HTML5SVG2'))
+h.cabecera(dEtq('meta', charset='UTF-8'))
+h.cabecera(dEtq('meta', name='viewport', content='width=device-width, initial-scale=1.0'))
+h.cabecera(dEtq('meta', name='description', content='Una demostración de HTML5SVG2 ..'))
+h.cabecera(dEtq('meta', name='keywords', content='HTML, CSS, SVG, JavaScript'))
+h.cabecera(dEtq('meta', name='author', content='Borsi F. Romero A.'))
+h.cabecera(dEtq('link', rel='stylesheet', type=&quot;text/css&quot;, href=&quot;https://www.w3schools.com/w3css/4/w3.css&quot;))
+h.cabecera(dEtq('link', rel='stylesheet', href=&quot;https://fonts.googleapis.com/css?family=Architects Daughter|Baumans|Monoton|Mallanna|Bellefair|Josefin Sans:300,600&quot;))
+l_stl = [
+    &quot;body {background-color: lightblue; font-family: Josefin Sans;}&quot;, 
+    &quot;h1, h2, h3 {color: blue}&quot;
+] 
+h.cabecera(dTag('style', l_stl))
+
+# 3. Codificar el bloque &lt;body&gt;
+h.contenido(dTag('h1', 'HTML 5 SVG 2 / W3.CSS', **{'class': 'w3-container w3-center w3-blue', 'style': 'font-family:Monoton'}))
+lo = dTag('h2', 'Esto es fantástico ...', **{'style': 'font-family:Architects Daughter'})
+ls = dTag('header', dTag('h2', 'Los doce apóstoles de Jesús'), **{'class': 'w3-container w3-amber', 'style': 'font-family:Baumans'})
+lAp = [
+    &quot;Simón, llamado Pedro&quot;,
+    &quot;Andrés hermano de Pedro&quot;,
+    &quot;Jacobo hijo de Zebedeo&quot;,
+    &quot;Juan su hermano&quot;,
+    &quot;Felipe&quot;,
+    &quot;Bartolomé&quot;,
+    &quot;Tomás&quot;,
+    &quot;Mateo el publicano&quot;,
+    &quot;Jacobo hijo de Alfeo&quot;,
+    &quot;Lebeo, por sobrenombre Tadeo&quot;,
+    &quot;Simón el cananista&quot;,
+    &quot;Judas Iscariot, el que también le entregó.&quot;
+]
+ls.extend(dTag('ol', [dTag('li', tx)[0] for tx in lAp], style=&quot;font-size:16pt&quot;))
+ls.extend(dEtq('br'))
+lo.extend(dTag('div', ls, **{'class': 'w3-card-4 w3-sand', 'style': 'width:100%;'}))
+h.contenido(dTag('div', lo, **{'class': 'w3-container'}))
+
+# 4. Archivar   
+h.gravar(&quot;demo0.html&quot;)
+</code></pre>
+<p>El resultado se verá tal como se aprecia en la siguiente imagen.</p>
+<p><img alt="png" src="../imgs/demo00.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../1_intro/" class="btn btn-neutral float-left" title="1. Codificación"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../3_svg/" class="btn btn-neutral float-right" title="3. SVG">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../1_intro/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../3_svg/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

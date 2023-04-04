@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>1. Codificación - html5svg2</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "1. Codificaci\u00f3n";
+        var mkdocs_page_input_path = "1_intro.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> html5svg2
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Guía de uso de HTML5SVG2</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">1. Codificación</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#funciones-de-codificacion">Funciones de codificación</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#dtag">dTag</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#detq">dEtq</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dcmt">dCmt</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#codificacion-de-marcado-anidado">Codificación de marcado anidado</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2_html/">2. HTML</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../3_svg/">3. SVG</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">html5svg2</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>1. Codificación</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="codificacion">Codificación</h1>
+<h2 id="funciones-de-codificacion">Funciones de codificación</h2>
+<p>En <em>html5svg2</em> los documentos HTML se codifican empleando las funciones <em>dTag</em>, <em>dEtq</em> y <em>dCmt</em>. 
+Cada una de estas funciones devuelven una lista de texto codificado de acuerdo a la 
+sintaxis del lenguaje de marcas de HTML. Estas listas se introducen &#8212; según corresponda &#8212; 
+por medio de los métodos <em>cabecera()</em> y <em>contenido()</em> en el objeto de la clase HTML5.</p>
+<h3 id="dtag">dTag</h3>
+<pre><code class="language-python">dTag(tag, obj, **js)
+# tag: marca o etiqueta
+# obj: contenido de la marca (texto o lista de texto)
+# **js: argumentos clave:valor de la marca
+</code></pre>
+<p>La función <em>dTag()</em> se emplea para codificar el marcado que tiene la siguiente forma:</p>
+<pre><code class="language-text">&lt;marca arg0=&quot;val0&quot; arg1=&quot;val1&quot;&gt; contenido &lt;/marca&gt;
+</code></pre>
+<p>El ejemplo dado a continuación</p>
+<pre><code class="language-python">dTag('h1', 'Título', style=&quot;color:red;&quot;)
+</code></pre>
+<p>Genera el siguiente resultado</p>
+<pre><code class="language-python">['&lt;h1 style=&quot;color:red;&quot;&gt;Título&lt;/h1&gt;']
+</code></pre>
+<h3 id="detq">dEtq</h3>
+<pre><code class="language-python">dEtq(etq, **js)
+# etq: marca o etiqueta
+# **js: argumentos clave:valor de la marca
+</code></pre>
+<p>La función <em>dEtq()</em> se emplea para codificar el marcado que tiene la siguiente forma:</p>
+<pre><code class="language-text">&lt;marca arg0=&quot;val0&quot; arg1=&quot;val1&quot; /&gt;
+</code></pre>
+<p>Ejemplo</p>
+<pre><code class="language-python">dEtq('img', src=&quot;imagen.png&quot;, alt=&quot;(imagen)&quot;)
+</code></pre>
+<p>Resultado </p>
+<pre><code class="language-python">['&lt;img src=&quot;imagen.png&quot; alt=&quot;(imagen)&quot; /&gt;']
+</code></pre>
+<h3 id="dcmt">dCmt</h3>
+<pre><code class="language-python">dCmt(obj)
+# obj: texto o lista de texto
+</code></pre>
+<p>La función <em>dCmt()</em> se emplea para codificar comentarios. Estas no serán visibles
+en la página web.</p>
+<p>Ejemplo</p>
+<pre><code class="language-python">dCmt('Esto es un comentario')
+</code></pre>
+<p>Resultado</p>
+<pre><code class="language-python">['&lt;!-- Esto es un comentario --&gt;']
+</code></pre>
+<h2 id="codificacion-de-marcado-anidado">Codificación de marcado anidado</h2>
+<p>El siguiente código HTML correspondiente a un ejemplo de una lista ordenada</p>
+<pre><code class="language-html">    &lt;h1&gt;El Tahuantinsuyo&lt;/h1&gt;
+    &lt;ol style=&quot;font-size:14pt&quot;&gt;
+      &lt;li&gt;Collasuyo&lt;/li&gt;
+      &lt;li&gt;Contisuyo&lt;/li&gt;
+      &lt;li&gt;Chinchaysuyo&lt;/li&gt;
+      &lt;li&gt;Antisuyo&lt;/li&gt;
+    &lt;/ol&gt;
+</code></pre>
+<p>se codifica de la siguiente manera</p>
+<pre><code class="language-python">    h = HTML5()
+    h.contenido(dTag('h1', 'El Tahuantinsuyo'))
+    lst = [
+        dTag('li', 'Collasuyo')[0],
+        dTag('li', 'Contisuyo')[0],
+        dTag('li', 'Chinchaysuyo')[0],
+        dTag('li', 'Antisuyo')[0]
+    ]
+    h.contenido(dTag('ol', lst, style=&quot;font-size:14pt&quot;))
+
+</code></pre>
+<p>y se mostrará en la página web de la siguiente forma
+<img alt="png" src="../imgs/tw.html.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Guía de uso de HTML5SVG2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../2_html/" class="btn btn-neutral float-right" title="2. HTML">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../2_html/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
