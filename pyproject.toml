@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "html5svg2"
+version = "0.1.1"
+authors = [
+    { name="Borsi Romero", borsifelix="xxx@gmail.com" },
+]
+description = "Generador de reportes en formato HTML y SVG"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.3"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/borsifelix/html5svg2"
+"Bug Tracker" = "https://github.com/borsifelix/html5svg2/releases"

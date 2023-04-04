@@ -1,2 +1,6 @@
 .idea/*
+.pypirc
+build/*
+dist/*
+site/*
 html5svg2/__pycache__
