@@ -5,5 +5,6 @@ nav:
   - '1. Codificación': 1_intro.md
   - '2. HTML': 2_html.md
   - '3. SVG': 3_svg.md
+  - '4. Gráficos': 4_grf.md
 
 theme: readthedocs

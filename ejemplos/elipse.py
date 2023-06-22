@@ -1,7 +1,7 @@
 import math
 from pathlib import Path
 
-from html5svg2 import SVG2, circulo, elipse
+from html5svg2 import SVG2, elipse
 
 svg = SVG2('ajustable', W=330, H=130, letra="Consolas", color_fondo="rgb(250,250,230)")
 svg.cuadricula(10, style="stroke:SlateBlue;stroke-width:0.1px;")

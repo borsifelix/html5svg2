@@ -10,6 +10,10 @@ from html5svg2.prg import (
 	polilinea,
 	poligono,
 	trayectoria,
+	arco_circular,
+	arco_eliptico,
+	poligono_regular,
 	HTML5,
-	SVG2
+	SVG2,
+	GRF
 )

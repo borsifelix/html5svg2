@@ -88,6 +88,38 @@ svg.gravar("poligono.svg")
 
 ![svg](imgs/poligono.svg)
 
+### Polígono regular
+```python
+poligono_regular(po, n, r, ang, **cv)
+# po = (x, y): punto central
+# n: número de lados
+# r: radio al vértice
+# ang: ángulo del vértice inicial
+```
+Ejemplo:
+```python
+from html5svg2 import SVG2, poligono_regular
+
+svg = SVG2('ajustable', W=330, H=130, letra="Consolas", color_fondo="rgb(250,250,230)")
+svg.cuadricula(10, style="stroke:SlateBlue;stroke-width:0.1px;")
+
+l_db = [
+	poligono_regular((80, 65), 5, 60, 18, style="fill:gold;stroke:crimson;"),
+	poligono_regular((80, 65), 4, 40, 45, style="fill:yellow;stroke:blue;"),
+	poligono_regular((80, 65), 3, 20, -30, style="fill:lime;stroke:green;"),
+	poligono_regular((250, 65), 10, 60, 18, style="fill:gold;stroke:crimson;"),
+	poligono_regular((250, 65), 8, 40, 45, style="fill:yellow;stroke:blue;"),
+	poligono_regular((250, 65), 6, 20, -30, style="fill:lime;stroke:green;"),
+]
+
+for db in l_db:
+	svg.dibujar(db)
+	
+svg.gravar("poligono-regular.svg")
+```
+
+![svg](imgs/poligono-regular.svg)
+
 ### Rectángulo
 ```python
 rectangulo(px, w, h, **jx)
@@ -253,6 +285,45 @@ svg.gravar("jirish-nazca.svg")
 ```
 ![svg](imgs/jirish-nazca.svg)
 
+
+### Arco
+
+```python
+arco_circular(po, r, angi, angf, **cv)
+arco_eliptico(po, rx, ry, angi, angf, **cv)
+# po = (x,y): punto central del círculo o elipse
+# r: radio del círculo
+# rx: radio de la elipse en el eje X
+# ry: radio de la elipse en el eje Y
+# angi: ángulo inicial (en grados)
+# angf: ángulo final (en grados)
+# **js: argumentos clave:valor
+```
+
+Ejemplo:
+```python
+from html5svg2 import SVG2, arco_circular, arco_eliptico
+
+svg = SVG2('ajustable', W=330, H=130, letra="Consolas", color_fondo="rgb(250,250,230)")
+svg.cuadricula(10, style="stroke:SlateBlue;stroke-width:0.1px;")
+st1 = "fill:none;stroke:blue;stroke-width:2px;"
+st2 = "fill:none;stroke:red;stroke-width:2px;"
+
+l_db = [
+	arco_circular((80, 65), 50, 00, 120, style=st1),
+	arco_circular((80, 65), 50, 120, 360, style=st2),
+	arco_eliptico((245, 65), 50, 30, 0, 290, style=st1),
+	arco_eliptico((245, 65), 50, 30, 290, 360, style=st2)
+]
+
+for db in l_db:
+	svg.dibujar(db)
+	
+svg.gravar("arco.svg")
+```
+
+![svg](imgs/arco.svg)
+
 ## Texto
 ```python
 texto(px, tx, **jx)
@@ -301,4 +372,6 @@ svg.gravar("texto.svg")
 ```
 ![svg](imgs/texto.svg)
 
+## Rotar
 
+![svg](imgs/rotar.svg)

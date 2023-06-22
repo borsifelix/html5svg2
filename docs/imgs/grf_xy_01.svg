@@ -1,0 +1,43 @@
+<svg width="100%" height="100%" viewBox="0 0 400.0 250.0" font-family="Open Sans" style="stroke:black;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style type="text/css">
+    </style>
+  </defs>
+  <script>
+    function resaltar(x,el) { x.style.strokeWidth = el; }
+  </script>
+  <rect x="0.25" y="0.25" width="399.5" height="249.5" rx="10" ry="10" style="stroke:none;fill:gold;opacity:0.5" />
+  <rect x="0.25" y="0.25" width="399.5" height="249.5" rx="10" ry="10" style="fill:none;stroke:red;stroke-width:0.5px;" />
+  <svg x="60.0" y="30.0" width="330.0" height="178.0" style="stroke:black;">
+    <defs>
+      <style type="text/css">
+      </style>
+    </defs>
+    <rect x="0" y="0.0" width="330.0" height="178.0" style="stroke:none;fill:white;opacity:0.5;" />
+    <g id="sxy1">
+      <title>Serie 1</title>
+      <polyline style="fill:none;stroke-linejoin:round;;stroke:indigo;stroke-width:3;" onmouseover="resaltar(this,6)" onmouseout="resaltar(this,3)" points="55.0,106.8 110.0,148.33333333333334 132.0,59.33333333333333 220.0,29.666666666666657" />
+    </g>
+    <g id="sxy2">
+      <title>Serie 2</title>
+      <polyline style="fill:none;stroke-linejoin:round;;stroke:green;stroke-width:1;" onmouseover="resaltar(this,2)" onmouseout="resaltar(this,1)" points="0.0,148.33333333333334 330.0,89.0" />
+    </g>
+    <path style="stroke:blue;stroke-width:0.25px;stroke-dasharray:5 2" d="M 0,118.66666666666666 l 330.0,0 M 0,59.33333333333333 l 330.0,0 " />
+    <path style="stroke:blue;stroke-width:0.25px;stroke-dasharray:5 2" d="M 55.0,178.0 l 0,-178.0 M 110.0,178.0 l 0,-178.0 M 165.0,178.0 l 0,-178.0 M 220.0,178.0 l 0,-178.0 M 275.0,178.0 l 0,-178.0 " />
+  </svg>
+  <text x="225.0" y="17.5" style="stroke:none;fill:blue;font-family:Broadway;font-size:10px;text-anchor:middle;dominant-baseline:middle;">Título Gráfico</text>
+  <text x="225.0" y="232.5" style="stroke:none;fill:red;font-size:10px;text-anchor:middle;dominant-baseline:middle;">Eje X</text>
+  <text x="17.5" y="119.0" style="stroke:none;font-size:10px;text-anchor:middle;dominant-baseline:middle;" transform="rotate(-90,17.5,119.0)">Eje Y - con rotación de 90°C - HTML5SVG2</text>
+  <text x="55.0" y="208.0" style="stroke:none;fill:red;font-size:8px;text-anchor:end;dominant-baseline:central;">0</text>
+  <text x="55.0" y="148.66666666666666" style="stroke:none;fill:red;font-size:8px;text-anchor:end;dominant-baseline:central;">100</text>
+  <text x="55.0" y="89.33333333333331" style="stroke:none;fill:red;font-size:8px;text-anchor:end;dominant-baseline:central;">200</text>
+  <text x="55.0" y="30.0" style="stroke:none;fill:red;font-size:8px;text-anchor:end;dominant-baseline:central;">300</text>
+  <text x="60.0" y="213.0" style="stroke:none;fill:green;font-size:8px;text-anchor:middle;dominant-baseline:hanging;">0</text>
+  <text x="115.0" y="213.0" style="stroke:none;fill:green;font-size:8px;text-anchor:middle;dominant-baseline:hanging;">5</text>
+  <text x="170.0" y="213.0" style="stroke:none;fill:green;font-size:8px;text-anchor:middle;dominant-baseline:hanging;">10</text>
+  <text x="225.0" y="213.0" style="stroke:none;fill:green;font-size:8px;text-anchor:middle;dominant-baseline:hanging;">15</text>
+  <text x="280.0" y="213.0" style="stroke:none;fill:green;font-size:8px;text-anchor:middle;dominant-baseline:hanging;">20</text>
+  <text x="335.0" y="213.0" style="stroke:none;fill:green;font-size:8px;text-anchor:middle;dominant-baseline:hanging;">25</text>
+  <text x="390.0" y="213.0" style="stroke:none;fill:green;font-size:8px;text-anchor:middle;dominant-baseline:hanging;">30</text>
+  <rect x="60.0" y="30.0" width="330.0" height="178.0" style="fill:none;stroke:violet;stroke-width:2px;" />
+</svg>

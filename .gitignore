@@ -3,4 +3,5 @@
 build/*
 dist/*
 site/*
+tmp/*
 html5svg2/__pycache__
